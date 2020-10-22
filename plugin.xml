@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-aep-analytics" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <name>AepAnalytics</name>
+
+    <engines>
+        <engine name="cordova-ios" version=">=5.1.1"></engine>
+        <engine name="cordova-android" version=">=9"></engine>
+    </engines>
+
+    <js-module name="AepAnalytics" src="js/AepAnalytics.js">
+        <clobbers target="cordova.plugins.AepAnalytics" />
+    </js-module>
+    
+    <platform name="android">
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="AepAnalytics">
+                <param name="android-package" value="com.aepanalytics.AepAnalytics" />
+            </feature>
+        </config-file>
+        
+        <framework src="src/android/custom.gradle" custom="true" type="gradleReference" />
+
+        <config-file parent="/*" target="AndroidManifest.xml" />
+
+        <source-file src="src/android/AepApplication.java" target-dir="src/com/aepanalytics" />
+        <source-file src="src/android/AepAnalytics.java" target-dir="src/com/aepanalytics" />
+        
+        <hook type="after_prepare" src="js/add_application_name.js" />
+
+    </platform>
+    
+    <platform name="ios">
+    
+        <config-file parent="/*" target="config.xml">
+            <feature name="AepAnalytics">
+                <param name="ios-package" value="AepAnalytics" />
+            </feature>
+        </config-file>
+
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git" />
+            </config>
+            <pods use-frameworks="true">
+                <pod name="ACPCore" spec="~> 2.0" />
+                <pod name="ACPAnalytics" spec="~> 2.0" />
+                <pod name="ACPUserProfile" spec="~> 2.0" />
+            </pods>
+        </podspec>
+        
+        <source-file src="src/ios/AepAnalytics.m" />
+        <header-file src="src/ios/AepAnalytics.h"/>
+
+        <source-file src="src/ios/AppDelegate+AepAnalytics.m"/>
+        <header-file src="src/ios/AppDelegate+AepAnalytics.h"/>
+
+    </platform>
+
+</plugin>
