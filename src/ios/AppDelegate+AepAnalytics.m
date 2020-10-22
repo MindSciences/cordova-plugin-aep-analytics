@@ -20,7 +20,7 @@ static NSString *const PLUGIN_NAME = @"AepAnalytics";
 
     - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
         
-        BOOL *aepPluginEnabled = FALSE;
+        BOOL aepPluginEnabled = FALSE;
         if (aepPluginEnabled == FALSE) {
             printf("### AepAnalytics - Not started because aepPluginEnabled is FALSE");
             return [super application:application didFinishLaunchingWithOptions:launchOptions];
