@@ -48,10 +48,10 @@ public class AepApplication extends Application {
                     public void call(Object o) {
                         MobileCore.configureWithAppID("{AepAppId}");
                         MobileCore.lifecycleStart(null);
-                        MobileCore.trackAction("install", additionalContextData);
-
+                        
                         Map<String, String> additionalContextData = new HashMap<String, String>();
                         additionalContextData.put("platform", "android");
+                        MobileCore.trackAction("install", additionalContextData);
                     }
                 });
             } catch (InvalidInitException e) {
