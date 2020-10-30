@@ -34,7 +34,7 @@ public class AepApplication extends Application {
             }
 
             MobileCore.setApplication(this);
-            MobileCore.setLogLevel(LoggingMode.DEBUG);
+            MobileCore.setLogLevel(LoggingMode.WARNING);
 
             try {
                 Analytics.registerExtension();
