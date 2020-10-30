@@ -55,13 +55,13 @@ public class AepApplication extends Application {
                     }
                 });
             } catch (InvalidInitException e) {
-                System.out.println("### AepAnalytics - Error");
+                System.out.println("### AepAnalytics - Error\n");
                 System.out.println(e);
             }
 
             sharedPref.edit().putBoolean("firstrun", false).commit();
         } else {
-            System.out.println("### AepAnalytics - Not the first install");
+            System.out.println("### AepAnalytics - Not the first install\n");
         }
     }
 }
