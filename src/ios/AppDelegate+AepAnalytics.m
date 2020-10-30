@@ -21,6 +21,7 @@ static NSString *const PLUGIN_NAME = @"AepAnalytics";
     - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
         
         BOOL aepPluginEnabled = NO;
+    
         if (!aepPluginEnabled) {
             printf("### AepAnalytics - Not started because aepPluginEnabled is False");
             return [super application:application didFinishLaunchingWithOptions:launchOptions];
@@ -31,7 +32,7 @@ static NSString *const PLUGIN_NAME = @"AepAnalytics";
             [[NSUserDefaults standardUserDefaults] synchronize];
             printf("### AepAnalytics - First time App Launch - Init Aep & Track Install");
 
-            [ACPCore setLogLevel:ACPMobileLogLevelDebug];
+            [ACPCore setLogLevel:ACPMobileLogLevelWarning];
             [ACPCore configureWithAppId:@"{AepAppId}"];
 
             printf("### AepAnalytics - ConfigureWithAppID: {AepAppId}");
@@ -48,6 +49,9 @@ static NSString *const PLUGIN_NAME = @"AepAnalytics";
             [ACPCore trackAction:@"install" data:@{@"platform":@"ios"}];
 
             self.viewController = [[MainViewController alloc] init];
+        }
+        else {
+            printf("### AepAnalytics - Not the first launch");   
         }
 
         return [super application:application didFinishLaunchingWithOptions:launchOptions];
