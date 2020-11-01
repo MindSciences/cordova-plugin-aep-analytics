@@ -43,7 +43,7 @@
             <config>
                 <source url="https://github.com/CocoaPods/Specs.git" />
             </config>
-            <pods use-frameworks="true">
+            <pods use-frameworks="false">
                 <pod name="ACPCore" spec="~> 2.0" />
                 <pod name="ACPAnalytics" spec="~> 2.0" />
                 <pod name="ACPUserProfile" spec="~> 2.0" />
