@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 
 #import "ACPCore.h"
+#import "ACPMobileServices.h"
 #import "ACPAnalytics.h"
 #import "ACPUserProfile.h"
 #import "ACPIdentity.h"
@@ -37,6 +38,7 @@ static NSString *const PLUGIN_NAME = @"AepAnalytics";
 
             printf("### AepAnalytics - ConfigureWithAppID: {AepAppId}\n");
 
+            [ACPMobileServices registerExtension];
             [ACPAnalytics registerExtension];
             [ACPUserProfile registerExtension];
             [ACPIdentity registerExtension];

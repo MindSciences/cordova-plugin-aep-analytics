@@ -14,6 +14,7 @@ import com.adobe.marketing.mobile.InvalidInitException;
 import com.adobe.marketing.mobile.Lifecycle;
 import com.adobe.marketing.mobile.LoggingMode;
 import com.adobe.marketing.mobile.MobileCore;
+import com.adobe.marketing.mobile.MobileServices;
 import com.adobe.marketing.mobile.Signal;
 import com.adobe.marketing.mobile.UserProfile;
 
@@ -37,6 +38,7 @@ public class AepApplication extends Application {
             MobileCore.setLogLevel(LoggingMode.WARNING);
 
             try {
+                MobileServices.registerExtension();
                 Analytics.registerExtension();
                 UserProfile.registerExtension();
                 Identity.registerExtension();

@@ -47,6 +47,7 @@
                 <pod name="ACPCore" spec="~> 2.0" />
                 <pod name="ACPAnalytics" spec="~> 2.0" />
                 <pod name="ACPUserProfile" spec="~> 2.0" />
+                <pod name="ACPMobileServices" spec="~> 1.0" />
             </pods>
         </podspec>
         
