@@ -3,6 +3,7 @@ package com.aepanalytics;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.RemoteException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,9 @@ import com.adobe.marketing.mobile.MobileCore;
 import com.adobe.marketing.mobile.MobileServices;
 import com.adobe.marketing.mobile.Signal;
 import com.adobe.marketing.mobile.UserProfile;
+import com.android.installreferrer.api.InstallReferrerClient;
+import com.android.installreferrer.api.InstallReferrerStateListener;
+import com.android.installreferrer.api.ReferrerDetails;
 
 
 public class AepApplication extends Application {
@@ -95,10 +99,12 @@ public class AepApplication extends Application {
                         final ReferrerDetails details = referrerClient.getInstallReferrer();                        
 
                         // pass the install referrer url to the SDK
-                        Analytics.processGooglePlayInstallReferrerUrl(details.getInstallReferrer());
+                      MobileServices.processGooglePlayInstallReferrerUrl(details.getInstallReferrer());
 
                     } catch (final RemoteException ex) {
-                        Log.w("Acquisition - RemoteException while retrieving referrer information (%s)", ex.getLocalizedMessage() == null ? "unknown" : ex.getLocalizedMessage());
+                      System.out.println("### AepAnalytics - Error\n");
+                      System.out.println("### Acquisition - RemoteException while retrieving referrer information \n");
+                      System.out.println(ex.getLocalizedMessage() == null ? "unknown" : ex.getLocalizedMessage());
                     } finally {
                         referrerClient.endConnection();
                     }

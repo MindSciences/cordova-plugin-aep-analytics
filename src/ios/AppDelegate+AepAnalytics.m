@@ -14,7 +14,6 @@
 #import "ACPIdentity.h"
 #import "ACPLifecycle.h"
 #import "ACPSignal.h"
-#import "ADBMobile.h"
 
 static NSString *const PLUGIN_NAME = @"AepAnalytics";
 
